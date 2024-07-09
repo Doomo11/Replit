@@ -1,4 +1,27 @@
+#Make a list containing all of the numbers of the sudoku from the csv file in order
+with open('sudoku.txt', 'r') as f:
+        s = str(f.read())
+        print(s)
+        s = s.replace('\n', ',')
+        puzzle = s.split(',')
+
+print(puzzle)
+
+for i in range(len(puzzle)):
+        puzzle[i] = int(puzzle[i])
+
+print(puzzle)
+
+#Make a blank dictionary for all of the numbers and their possible values
+gaps = {}
+for i in range(len(puzzle)):
+        gaps[i] : []
+
+#check what boxes, rows and columns the square is in and add to the dictionary 'gaps' the possible values of a certain empty space entering the index
 def check_square(index):
+        numbers = [1,2,3,4,5,6,7,8,9]
+        possible = []
+        
         check = index
         if check in box1:
                 print('in box 1')
@@ -86,20 +109,32 @@ def check_square(index):
                 print('in column 9')
                 column = column9
 
+        # print('box:')
+        # print(box)
+        # print('row:')
+        # print(row)
+        # print('column')
+        # print(column)
+
+        for i in numbers:
+                fine = True
+                for j in box:
+                        if i == puzzle[j]:
+                                fine = False
+                for j in row:
+                        if i == puzzle[j]:
+                                fine = False
+                for j in column:
+                        if i == puzzle[j]:
+                                fine = False
+                if fine == True:
+                        possible.append(i)
+        #print(possible)
+        gaps[index] = possible
+        #print(gaps)
         
-        print(box)
-        print(row)
-        print(column)
 
-
-with open('sudoku.txt', 'r') as f:
-        s = str(f.read())
-        print(s)
-        s = s.replace('\n', ',')
-        puzzle = s.split(',')
-
-print(puzzle)
-
+        
 
 
 
