@@ -14,8 +14,8 @@ print(puzzle)
 
 #Make a blank dictionary for all of the numbers and their possible values
 gaps = {}
-for i in range(len(puzzle)):
-        gaps[i] : []
+# for i in range(len(puzzle)):
+#         gaps[i] : []
 
 #check what boxes, rows and columns the square is in and add to the dictionary 'gaps' the possible values of a certain empty space entering the index
 def check_square(index):
@@ -109,6 +109,7 @@ def check_square(index):
                 print('in column 9')
                 column = column9
 
+
         # print('box:')
         # print(box)
         # print('row:')
@@ -131,7 +132,6 @@ def check_square(index):
                         possible.append(i)
         #print(possible)
         gaps[index] = possible
-        #print(gaps)
         
 
         
