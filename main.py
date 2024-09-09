@@ -52,6 +52,13 @@ cor = cor[:-1]
 print(cor)
 print(gaps)
 
+for i in range(len(cor)):
+  if i % 18 != 0:
+    print(cor[i], end = '')
+  else:
+    print()
+    print(cor[i], end = '')
+
 # with open('score.txt', 'r') as f:
 #   score = int(f.read())
 
